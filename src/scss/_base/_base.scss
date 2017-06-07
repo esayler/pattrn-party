@@ -1,0 +1,236 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+.title {
+  color: $grey-light;
+  font-weight: $light;
+  text-transform: uppercase;
+
+  &--teal {
+    color: $teal;
+  }
+}
+
+.student-name {
+  color: $grey-light;
+  font-weight: $semi-bold;
+}
+
+.header {
+  background-color: $purple-dark;
+}
+
+.hr--header {
+  @include hr-thin-grey;
+  display: inline-block;
+  width: 75%;
+  margin: 4px 20px;
+}
+
+.hr--title {
+  @include hr-thin-grey;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 40px;
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    @include title
+  }
+
+  &__header {
+    display: block;
+  }
+
+  &__tab {
+    flex-grow: 1;
+    margin: 0;
+    padding: 12px 0;
+    border: 0;
+    border-right: 1px solid #FFF;
+    border-bottom: 1px solid $grey-medium;
+    outline: none;
+    background: $grey-light;
+    font-weight: $light;
+    cursor: default;
+
+    &::after {
+      @include hidden-bold-text;
+    }
+
+    &:hover {
+      font-weight: $semi-bold;
+
+      &::after {
+        @include hidden-bold-text;
+      }
+    }
+
+    &--active {
+      flex-grow: 1;
+      padding: 12px 0;
+      border: 1px solid $grey-medium;
+      border-bottom: none;
+      outline: none;
+      background: none;
+      font-weight: $semi-bold;
+
+      &::after {
+        @include hidden-bold-text;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    border: 1px solid $grey-medium;
+    border-top: 0;
+  }
+
+  &__paragraph {
+    font-size: .9em;
+    line-height: 1.5;
+  }
+
+  &__left {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  &__right {
+    padding-right: 20px;
+  }
+
+  &__image {
+    max-width: 100%v;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+.button {
+  &--view-code {
+    margin: 20px auto;
+    padding: 12px 80px;
+    border: 0;
+    outline: none;
+    background: $purple-medium;
+    color: $grey-light;
+    font-size: 1.2em;
+    font-weight: lighter;
+    text-transform: uppercase;
+
+    &:hover {
+      background: lighten($purple-medium, 10%);
+    }
+  }
+}
+
+.cards {
+  &__title {
+    @include title
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 40px;
+  }
+
+}
+
+.card {
+  margin: 10px;
+  border: 1px solid $grey-light;
+
+  &__header {
+    padding: 10px;
+    border: 1px solid $grey-light;
+    font-weight: $semi-bold;
+  }
+}
+
+.navbar {
+  &__title {
+    @include title
+  }
+
+  &__content {
+    margin: 40px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  &__bar {
+    width: 100%;
+    padding: 20px;
+    background-color: $grey-medium;
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  li {
+    list-style-type: none;
+
+    &::after {
+      @include hidden-bold-text;
+    }
+
+    &:hover {
+      text-decoration: underline;
+
+      &::after {
+        @include hidden-bold-text;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $black;
+  }
+
+  &__search {
+    border: none;
+    padding: 10px;
+    background-color: $grey-light;
+    font-weight: $light;
+  }
+
+  &__logo {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: 0;
+  }
+}
